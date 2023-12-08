@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+
+	<title>Fiesta</title>
+
+	<link rel="stylesheet" href="style.css">
+
+	<!-- Bootstrap Link -->
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<!-- -- -->
+
+	<!-- 	Google Fonts Links -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <!-- -- -->
+
+</head>
+<body>
+	<!-- Navbar Starts -->
+	<div class="header" >
+		<div class="container" id="myheader">
+			<div class="navbar">
+				<div class="logo">
+					<img src="fiesta.jpg" height="50px" width="100px">
+				</div>
+				<nav>
+					<ul>
+						<li><a href="home.html">Home</a></li>
+						<li><a href="#myfooter">About</a></li>
+						<li><a href="#myfooter">Contact</a></li>
+						<li><a href="#myfooter">Feedback</a></li>
+					</ul>
+				</nav>
+	    	</div>
+        </div> 
+	</div>
+
+	<!-- Navbar Ends -->
+
+	<!-- Sliders Start -->
+
+	<div class="slider">
+		<div class="slides">
+			<div class="slide">
+				<div class="slide-data">
+					<h1>Sports Fest</h1>
+					<p>Starts on: 17 Feb 2021<br> Ends on: 20 Feb 2021 </p>
+					<button><a href = "sportsfest.html">Know more</a></button>
+				</div>
+			</div>
+
+			<div class="slide">
+				<div class="slide-data">
+					<h1>Tech Fest</h1>
+					<p>Starts on: 17 August 2021<br> Ends on: 20 August 2021</p>
+					<button><a href="techfest.html">Know more</a></button>
+				</div>
+			</div>
+
+			<div class="slide">
+				<div class="slide-data">
+					<h1>Cultural Fest</h1>
+					<p>Starts on: 17 March 2021<br> Ends on: 20 March 2021</p>
+					<button><a href="culturalfest.html">Know more</a></button>
+				</div>
+			</div>
+		</div>
+
+		<button class="arrows prev" onclick="plusslide(-1)"><span><b>&#10094</b></span></button>
+		<button class="arrows next " onclick="plusslide(1)"><span><b>&#10095</b></span></button>
+
+		<div class="dots">
+			<span onclick="currentslide(1)"></span>
+			<span onclick="currentslide(2)"></span>
+			<span onclick="currentslide(3)"></span>
+		</div>
+	</div>
+
+	<script src="script.js"></script>
+
+	<!-- Sliders End -->
+
+
+	<!-- Footer Starts -->
+
+	<div class="footer" id="myfooter">
+		<div class="footer-content">
+			<div class="footer-section about">
+				<h1>About us</h1>
+				<p>
+					SRM University-AP, Andhra Pradesh is a private university founded in 2017 by the SRM TRUST AP through the Andhra Pradesh Private Universities (Establishment and Regulation) Act, 2016. It is a multi-stream research university with a focus on diverse fields. From engineering to medicine and from liberal arts to management, SRM’s vision is to emerge as a world-class university that is globally connected, nationally relevant, and regionally transformative.	
+				</p>
+				<div class="contact">
+					<span><i class="fa fa-phone-square" aria-hidden="true"></i>&nbsp; 123-456-789</span> 
+					<span><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp; srm@gmail.com</span>
+				</div>
+				<div class="socials">
+					<a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+					<a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+					<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+				</div>
+			</div>
+			<div class="footer-section contact-form">
+				<h2>Feedback</h2>
+				<form action="feedback.php" method="POST">
+					<input type="text" name="name" class="text-input contact-input" placeholder="Name" required> 
+					<input type="email" name="email" class="text-input contact-input" placeholder="E-mail" required>
+					<textarea name="message" class="text-input contact-input" placeholder="Your Suggestions" cols="24" required></textarea>
+					<button type="submit" class="btn btn-big contact-btn">
+						<i class="fa fa-envelope" aria-hidden="true"></i>
+						Send
+					</button>
+				</form>
+			</div>
+		</div>
+
+		<div class="footer-bottom">
+			&copy; Designed and Developed by Vijay Kashyap Kompella, Aashritha Kondaveeti
+		</div>	
+	</div>
+
+	<!-- Footer Ends -->
+
+</body>
+</html>

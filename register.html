@@ -1,0 +1,230 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+
+  <title>Register</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  <!-- Bootstrap Link -->
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <!-- -- -->
+
+  <!--  Google Fonts Links -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <!-- -- -->
+
+
+</head>
+<body>
+
+  <!-- Navbar Starts -->
+  <div class="header" >
+    <div class="container" id="myheader">
+      <div class="navbar">
+        <div class="logo">
+          <img src="fiesta.jpg" height="50px" width="100px">
+        </div>
+        <nav>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="#myfooter">About</a></li>
+            <li><a href="#myfooter">Contact</a></li>
+            <li><a href="#myfooter">Feedback</a></li>
+          </ul>
+        </nav>
+        </div>
+        </div> 
+  </div>
+
+  <!-- Navbar Ends -->
+
+  <!-- Registration Page Starts -->
+  <br>
+
+  <div class="regform"><h1>Registration Form</h1></div>
+  <div class="main">
+    <form>
+      <div id="name">
+        <h2 class="name">Name</h2>
+        <input class="firstname" type="text" name="first_name" required><br>         <!-- Name -->
+        <label class="firstlabel">First Name</label>
+        <input class="lastname" type="text" name="last_name" required><br>
+        <label class="lastlabel">Last Name</label>
+      </div>
+      <h2 class="name">E-Mail</h2>                                          <!-- E-Mail -->
+      <input class="email" type="text" name="email" required><br>
+      <h2 class="name">Registration No. </h2>                               <!-- Registration No -->
+      <input class="regno" type="text" name="regno" required><br>
+      <h2 class="name">Phone</h2>                                           <!-- Phone -->
+      <input class="code" type="text" name="area_code" required><br>
+      <label class="area-code">Area Code</label>                            <!-- Area Code -->
+      <input class="number" type="text" name="phone" required>
+      <label class="phone-number">Phone Number</label>                      <!-- Phone Number -->
+
+      <h2 class="name">College Name</h2>
+      <select class="option" name="college">
+        <option disabled="disabled" selected="selected">--Choose Option--</option>          <!-- College Name OPTION -->
+        <option>VIT AP</option>
+        <option>Vignan</option>
+        <option>RVR & JC</option>
+      </select>
+
+      <h2 id="gender">Gender</h2>
+      <label class="radio">                                                                 <!-- Gender RADIO -->
+        <input class="radio-one" type="radio" name="radio" checked="checked">
+        <span class="checkmark"></span>
+        Male                                                                                <!-- MALE -->
+      </label>
+      <label class="radio">
+        <input class="radio-two" type="radio" name="radio">
+        <span class="checkmark"></span>
+        Female                                                                              <!-- FEMALE -->
+      </label>
+      <label class="radio">
+        <input class="radio-three" type="radio" name="radio">
+        <span class="checkmark"></span>
+        Others                                                                              <!-- OTHERS -->
+      </label> <br><br>
+
+      <h2 id="events">Events</h2>
+      <label class="check">                                                                 <!-- Events CHECKBOX -->
+        <input class="check-one" type="checkbox" name="check1">
+        <span class="checkmark"></span>
+        Basketball                                                                          <!-- BB -->
+      </label>
+      <label class="check">
+        <input class="check-two" type="checkbox" name="check2">
+        <span class="checkmark"></span>
+        Cricket                                                                             <!-- Cricket -->
+      </label>
+      <label class="check">
+        <input class="check-three" type="checkbox" name="check3">
+        <span class="checkmark"></span>
+        Volleyball                                                                          <!-- VB -->
+      </label> <br>
+
+      <label class="check">
+        <input class="check-four" type="checkbox" name="check4">
+        <span class="checkmark"></span>
+        Football                                                                            <!-- FB -->
+      </label>
+      <label class="check">
+        <input class="check-five" type="checkbox" name="check5">
+        <span class="checkmark"></span>
+        Throwball                                                                           <!-- TB -->
+      </label>
+      <label class="check">
+        <input class="check-six" type="checkbox" name="check6">
+        <span class="checkmark"></span>
+        Girl's Basketball                                                                  <!-- GBB -->
+      </label> <br><br>
+
+      <h2 id="payment-mode">Payment Mode</h2>
+      <label class="radio">                                                                 <!-- Payment Mode RADIO -->
+        <input class="radio-one" type="radio" name="radio1" checked="checked" value = "Onspot">
+        <span class="checkmark"></span>
+        On Spot                                                                                <!-- On Spot -->
+      </label>
+      <label class="radio">
+        <input class="radio-two" type="radio" name="radio1" value="Online">
+        <span class="checkmark"></span>
+        Online                                                                              <!-- Online -->
+      </label><br><br>
+
+      <h2 id="idproof">ID Proof</h2> 
+      <div class="centre">
+          <div class="form-input">
+              <label for="file-ip-1">Upload Image</label>                                    <!-- Image Preview -->
+              <input type="file" name="" id="file-ip-1" accept="image/*" onchange="showPreview(event);">
+              <div class="preview">
+                  <img src="" id="file-ip-1-preview">
+              </div>
+          </div>
+      </div>
+
+      <script>
+          
+        $(function(){
+           $('form').on('submit',function(){
+           event.preventDefault();                                                          //Online Payment Redirection
+               var value=$("input[name=radio1]:checked").val();
+               switch(value){
+                 case "Online":  location.href='checkout.html'; break;
+               }
+           });
+        });
+      </script>
+
+
+    <script>
+          // Image Upload Preview
+
+          function showPreview(event) {
+            if(event.target.files.length > 0) {
+                var src = URL.createObjectURL(event.target.files[0]);
+                var preview = document.getElementById("file-ip-1-preview");
+                preview.src = src;
+                preview.style.display = "block";                                        //Image Preview JS
+            }
+          }
+            
+      </script>
+
+      <div class="register" style="text-align: center;">
+          <input type="submit" name="btn-submit" class="btnSubmit" >                         <!-- Register BTN -->
+      </div>
+
+      
+
+
+    </form>
+  </div>
+    <br>
+
+<!-- Footer Starts -->
+
+  <div class="footer" id="myfooter">
+    <div class="footer-content">
+      <div class="footer-section about">
+        <h1>About us</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+        </p>
+        <div class="contact">
+          <span><i class="fa fa-phone-square" aria-hidden="true"></i>&nbsp; 123-456-789</span> 
+          <span><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp; srm@gmail.com</span>
+        </div>
+        <div class="socials">
+          <a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+          <a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+          <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div class="footer-section contact-form">
+        <h2>Feedback</h2>
+        <form action="home.html" method="post">
+          <input type="text" name="name" class="text-input contact-input" placeholder="Name" required> 
+          <input type="email" name="email" class="text-input contact-input" placeholder="E-mail" required>
+          <textarea name="message" class="text-input contact-input" placeholder="Your Suggestions" cols="24" required></textarea>
+          <button type="submit" class="btn btn-big contact-btn">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            Send
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; Designed and Develop by Vijay Kashyap Kompella, Aashritha Kondaveeti
+    </div>  
+  </div>
+
+  <!-- Footer Ends -->
+</body>
+</html>
