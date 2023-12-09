@@ -1,0 +1,28 @@
+{% extends 'events/base.html' %}
+
+{% block content %}
+
+	
+	<h1>Inter College Venues</h1>
+<br/>
+<table class="table table-striped table-hover table-border">
+	{% for venue in venue_list %}
+<tr>
+	<td>
+		<a href="{% url 'show-venue' venue.id %}">{{ venue }}</a><br/>
+	</td>
+	{% if user.is_authenticated %}
+	<td align="right">
+		<a href ="{% url 'delete-venue' venue.id %}" class="btn btn-outline-danger btn-sm">Delete </a>
+	</td>
+	{% endif %}
+
+
+</tr>
+	{% endfor %}
+	
+	</table> 
+
+
+
+{% endblock %}
