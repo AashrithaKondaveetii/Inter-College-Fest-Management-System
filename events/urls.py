@@ -11,4 +11,5 @@ urlpatterns = [
     path('list_venues', views.list_venues, name='list-venues'),
     path('delete_event/<event_id>', views.delete_event, name='delete-event'), 
     path('delete_venue/<venue_id>', views.delete_venue, name='delete-venue'), 
+    path('my_events', views.my_events, name='my_events'),
 ]

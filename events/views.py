@@ -5,6 +5,9 @@ from datetime import datetime
 from django.http import HttpResponseRedirect
 from .models import Event, Venue
 from .forms import VenueForm, EventForm, EventFormAdmin
+from django.shortcuts import redirect
+from django.contrib import messages
+from django.contrib.auth.models import User
 
 def all_events(request):
 	event_list = Event.objects.all().order_by('name')
@@ -87,6 +90,11 @@ def delete_event(request, event_id):
 	else:
 		messages.success(request, ("You Aren't Authorized To Delete This Event!"))
 		return redirect('list-events')	
+	
+def delete_venue(request, venue_id):
+	venue = Venue.objects.get(pk=venue_id)
+	venue.delete()
+	return redirect('list-venues')	
 
 
 def list_venues(request):
