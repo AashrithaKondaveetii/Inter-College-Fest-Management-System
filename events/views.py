@@ -65,6 +65,36 @@ def show_venue(request, venue_id):
 		'venue_owner':venue_owner,
 		'events':events})
 
+def my_events(request):
+	if request.user.is_authenticated:
+		me = request.user.id
+		events = Event.objects.filter(attendees=me)
+		return render(request, 
+			'events/my_events.html', {
+				"events":events
+			})
+
+	else:
+		messages.success(request, ("You Aren't Authorized To View This Page"))
+		return redirect('home')
+
+def delete_event(request, event_id):
+	event = Event.objects.get(pk=event_id)
+	if request.user == event.manager:
+		event.delete()
+		messages.success(request, ("Event Deleted successfully"))
+		return redirect('list-events')		
+	else:
+		messages.success(request, ("You Aren't Authorized To Delete This Event!"))
+		return redirect('list-events')	
+
+
+def list_venues(request):
+	venue_list = Venue.objects.all()
+	return render(request, 'events/venue.html',
+		{'venue_list':venue_list})
+
+
 def home(request, year=datetime.now().year, month=datetime.now().strftime('%B')):
 	name = "Honey"
 	month = month.capitalize()
