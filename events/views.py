@@ -102,6 +102,36 @@ def list_venues(request):
 	return render(request, 'events/venue.html',
 		{'venue_list':venue_list})
 
+def admin_approval(request):
+	# Get The Venues
+	venue_list = Venue.objects.all()
+	# Get Counts
+	event_count = Event.objects.all().count()
+	venue_count = Venue.objects.all().count()
+	user_count = User.objects.all().count()
+
+	event_list = Event.objects.all().order_by('-event_date')
+	if request.user.is_superuser:
+		if request.method == "POST":
+			id_list = request.POST.getlist('boxes')
+			event_list.update(approved=False)
+			for x in id_list:
+				Event.objects.filter(pk=int(x)).update(approved=True)
+			messages.success(request, ("Event List Approval Has Been Updated!"))
+			return redirect('list-events')
+		else:
+			return render(request, 'events/admin_approval.html',
+				{"event_list": event_list,
+				"event_count":event_count,
+				"venue_count":venue_count,
+				"user_count":user_count,
+				"venue_list":venue_list})
+	else:
+		messages.success(request, ("You aren't authorized to view this page!"))
+		return redirect('home')
+	return render(request, 'events/admin_approval.html')
+
+
 
 def home(request, year=datetime.now().year, month=datetime.now().strftime('%B')):
 	name = "Honey"
